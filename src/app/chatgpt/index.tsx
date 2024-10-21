@@ -22,17 +22,25 @@ export default function Home() {
             width: '100vw',
           }}
           request={async (messages) => {
+            // OpenAI
             // const response = await fetch('/api/openai', {
             //   method: 'POST',
             //   body: JSON.stringify({ messages: messages }),
             // });
             // return response;
-            const response = await fetch('/api/qwen', {
+            // qwen
+            // const response = await fetch('/api/qwen', {
+            //   method: 'POST',
+            //   body: JSON.stringify({ messages: messages }),
+            // });
+            // const data = await response.json();
+            // return new Response(data.output?.text);
+            // 自定义 API
+            const response = await fetch(`/api/openai`, {
               method: 'POST',
               body: JSON.stringify({ messages: messages }),
             });
-            const data = await response.json();
-            return new Response(data.output?.text);
+            return response;
           }}
         />
       )}

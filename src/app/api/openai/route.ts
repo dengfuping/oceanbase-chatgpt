@@ -13,7 +13,8 @@ export async function POST(request: Request) {
 
   const openai = createOpenAI({
     apiKey: process.env.OPENAI_API_KEY,
-    baseURL: 'base url',
+    // baseUrl: 'https://api.bianxie.ai/v1',
+    baseURL: 'https://proxy-openai-ldziyoppio.ap-southeast-1.fcapp.run/v1',
     compatibility: 'compatible',
   });
   const stream = await streamText({
